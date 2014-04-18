@@ -1,0 +1,10 @@
+Index: plugins/sudoers/sudoers2ldif
+===================================================================
+--- plugins/sudoers/sudoers2ldif
++++ plugins/sudoers/sudoers2ldif
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2007, 2010-2011, 2013 Todd C. Miller <Todd.Miller@courtesan.com>
+ #

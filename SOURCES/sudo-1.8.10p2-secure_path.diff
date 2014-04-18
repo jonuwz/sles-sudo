@@ -1,0 +1,26 @@
+Index: pathnames.h.in
+===================================================================
+--- pathnames.h.in	
++++ pathnames.h.in
+@@ -44,7 +44,7 @@
+ #endif /* _PATH_DEVNULL */
+ 
+ #ifndef _PATH_DEFPATH
+-#define _PATH_DEFPATH		"/usr/bin:/bin"
++#define _PATH_STDPATH		"/usr/bin:/bin:/usr/sbin:/sbin"
+ #endif /* _PATH_DEFPATH */
+ 
+ #ifndef _PATH_STDPATH
+Index: plugins/sudoers/env.c
+===================================================================
+--- plugins/sudoers/env.c
++++ plugins/sudoers/env.c
+@@ -896,7 +896,7 @@ rebuild_env(void)
+ 	}
+     }
+     /* Replace the PATH envariable with a secure one? */
+-    if (def_secure_path && !user_is_exempt()) {
++    if (def_secure_path && !user_is_exempt() && def_env_reset) {
+ 	sudo_setenv2("PATH", def_secure_path, true, true);
+ 	SET(didvar, DID_PATH);
+     }
